@@ -1,7 +1,6 @@
 {
-    "name": "circle-step-outputter",
+    "name": "@artemv/circle-step-outputter",
     "main": "src",
-    "version": "0.0.0",
     "description": "Writes CircleCI build step output to a file",
     "license": "MIT",
     "repository": "artemv/circle-step-outputter",
