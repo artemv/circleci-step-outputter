@@ -1,5 +1,6 @@
 const axios = require('axios');
-var child_process = require('child_process');
+const childProcess = require('child_process');
+const fs = require('fs');
 
 const env = process.env;
 
@@ -12,21 +13,26 @@ function findStep(steps, stepId) {
   return step;
 }
 
-function unzipFile(gzFileName, jsonFileName) {
-  return child_process.execSync(`gunzip --stdout "${gzFileName}" > "${jsonFileName}"`).toString('utf8').trim()
-}
-
 function writeResponseMessagesToFile(messages, baseFilename) {
-  console.log('writeResponseToFile', messages, baseFilename);
-  return Promise.all(messages.map(m => {
-    let jsonFileName = `${baseFilename}${messages.length > 1 ? i : ''}.json`;
-    console.log(`File ${jsonFileName} written`);
-    return jsonFileName;
+  console.log('writeResponseMessagesToFile', messages.length, baseFilename);
+  return Promise.all(messages.map((message, idx) => {
+    let txtFileName = `${baseFilename}${messages.length > 1 ? idx : ''}.txt`;
+
+    return new Promise((resolve, reject) => {
+      fs.writeFile(txtFileName, message, function(err) {
+        if(err) {
+          reject(err);
+        }
+
+        console.log(`File ${txtFileName} written`);
+        resolve(txtFileName);
+      });
+    });
   }))
 }
 
-function dumpOutput(outputUrl, baseFilename, stepSubIndex) {
-  baseFilename = `${baseFilename}${stepSubIndex ? stepSubIndex : ''}`;
+function dumpOutput(outputUrl, baseFilename) {
+  console.log(`querying "${outputUrl}" for step output(s)`);
   return axios
     .get(outputUrl)
     .then(response => writeResponseMessagesToFile(response.data.map(i => i.message), baseFilename))
@@ -36,7 +42,8 @@ function dumpOutput(outputUrl, baseFilename, stepSubIndex) {
 }
 
 function dumpOutputs(actions, baseFileName) {
-  return Promise.all(actions.map(action => dumpOutput(action.output_url, baseFileName, actions.length > 1 ? action.index : null)));
+  return Promise.all(actions.map(action => dumpOutput(action.output_url,
+    `${baseFileName}${actions.length > 1 ? action.index : ''}`)));
 }
 
 function getBuildMetadata(url, {baseFileName, step}) {

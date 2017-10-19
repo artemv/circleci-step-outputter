@@ -15,4 +15,4 @@ deployment:
 
 general:
   artifacts:
-    - test-output*.json
+    - test-output*.txt

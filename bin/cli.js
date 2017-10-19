@@ -17,7 +17,7 @@ const cli = meow(`
 
     Examples
       $ circle-step-outputter --repoSlug="artemv/test-lib" --buildNum=2
-    This will write test-output.json, or test-output0.json, test-output1.json ... test-output4.json if there are 
+    This will write test-output.json, or test-output0.txt, test-output1.txt ... test-output4.txt if there are 
     multiple actions in the step (usually parallel actions). 
 `);
 
