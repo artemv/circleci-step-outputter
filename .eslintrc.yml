@@ -1,0 +1,24 @@
+extends: google
+env:
+  node: true
+  es6: true
+parserOptions:
+  ecmaVersion: 7
+  sourceType: module
+
+rules:
+  no-var: 0
+  require-jsdoc: 0
+  quotes: 0
+  semi: 0
+  new-cap: 0
+  object-curly-spacing: 0
+  valid-jsdoc: 0
+  max-len: [1,120]
+  arrow-parens: 0
+  comma-spacing: 0
+  one-var: 1
+  quote-props: 0
+  no-invalid-this: 0
+  comma-dangle: 0
+  no-undef: 1

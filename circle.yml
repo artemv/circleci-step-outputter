@@ -1,0 +1,18 @@
+machine:
+  node:
+    version: 7.0.0
+
+test:
+  post:
+    - node bin/cli.js
+
+deployment:
+  master:
+    branch: master
+    owner: artemv8
+    commands:
+      - npm run semantic-release
+
+general:
+  artifacts:
+    - test-output*.json
