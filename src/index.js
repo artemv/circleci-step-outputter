@@ -1,5 +1,4 @@
 const axios = require('axios');
-const childProcess = require('child_process');
 const fs = require('fs');
 
 const env = process.env;
@@ -20,7 +19,7 @@ function writeResponseMessagesToFile(messages, baseFilename) {
 
     return new Promise((resolve, reject) => {
       fs.writeFile(txtFileName, message, function(err) {
-        if(err) {
+        if (err) {
           reject(err);
         }
 

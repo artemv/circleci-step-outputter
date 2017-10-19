@@ -4,3 +4,4 @@ yarn.lock
 coverage
 .idea/
 test-output*.txt
+npm-debug*.log
