@@ -1,53 +1,53 @@
 {
-    "name": "circle-step-outputter",
-    "main": "src",
-    "description": "Writes CircleCI build step output to a file",
-    "license": "MIT",
-    "repository": "artemv/circle-step-outputter",
-    "author": {
-        "name": "Artem Vasiliev",
-        "email": "artem.job@gmail.com",
-        "url": "github.com/artemv"
-    },
-    "bin": "bin/cli.js",
-    "engines": {
-        "node": ">=7"
-    },
-    "scripts": {
-        "eslint": "eslint bin src test",
-        "semantic-release": "semantic-release pre && npm publish",
-        "test": "(npm run eslint || true) && nyc ava test"
-    },
-    "files": [
-        "bin",
-        "src"
-    ],
-    "keywords": [
-        "cli-app",
-        "cli",
-        "circleci"
-    ],
-    "dependencies": {
-        "axios": "^0.16.2",
-        "meow": "^3.7.0"
-    },
-    "devDependencies": {
-        "ava": "^0.20.0",
-        "codecov": "^2.2.0",
-        "condition-circle": "^1.5.0",
-        "eslint": "^4.9.0",
-        "eslint-config-google": "^0.9.1",
-        "nyc": "^11.0.0",
-        "semantic-release": "^7.0.0"
-    },
-    "nyc": {
-        "reporter": [
-            "lcov",
-            "text"
-        ]
-    },
-    "release": {
-        "verifyConditions": "condition-circle"
-    },
-    "version": "0.0.0-development"
+  "name": "circle-step-outputter",
+  "main": "src",
+  "description": "Writes CircleCI build step output to a file",
+  "license": "MIT",
+  "repository": "artemv/circle-step-outputter",
+  "author": {
+    "name": "Artem Vasiliev",
+    "email": "artem.job@gmail.com",
+    "url": "github.com/artemv"
+  },
+  "bin": "bin/cli.js",
+  "engines": {
+    "node": ">=7"
+  },
+  "scripts": {
+    "eslint": "eslint bin src test",
+    "semantic-release": "semantic-release pre && npm publish",
+    "test": "(npm run eslint || true) && nyc ava test"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "keywords": [
+    "cli-app",
+    "cli",
+    "circleci"
+  ],
+  "dependencies": {
+    "axios": "^0.16.2",
+    "meow": "^3.7.0"
+  },
+  "devDependencies": {
+    "ava": "^0.20.0",
+    "codecov": "^2.2.0",
+    "condition-circle": "^1.5.0",
+    "eslint": "^4.9.0",
+    "eslint-config-google": "^0.9.1",
+    "nyc": "^11.0.0",
+    "semantic-release": "^7.0.0"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  },
+  "release": {
+    "verifyConditions": "condition-circle"
+  },
+  "version": "0.0.0-development"
 }
