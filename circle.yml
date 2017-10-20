@@ -4,7 +4,7 @@ machine:
 
 test:
   post:
-    - node bin/cli.js
+    - node bin/cli.js && mv test-output*.txt $CIRCLE_ARTIFACTS
 
 deployment:
   master:
@@ -13,6 +13,3 @@ deployment:
     commands:
       - npm run semantic-release
 
-general:
-  artifacts:
-    - test-output*.txt
