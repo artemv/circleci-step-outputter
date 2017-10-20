@@ -3,7 +3,7 @@
   "main": "src",
   "description": "Writes CircleCI build step output to a file",
   "license": "MIT",
-  "repository": "artemv/circle-step-outputter",
+  "repository": "artemv/circleci-step-outputter",
   "author": {
     "name": "Artem Vasiliev",
     "email": "artem.job@gmail.com",
