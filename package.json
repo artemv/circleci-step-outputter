@@ -1,5 +1,5 @@
 {
-    "name": "@artemv/circle-step-outputter",
+    "name": "circle-step-outputter",
     "main": "src",
     "description": "Writes CircleCI build step output to a file",
     "license": "MIT",
