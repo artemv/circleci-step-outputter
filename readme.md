@@ -7,17 +7,13 @@ Writes CircleCI step output to a file
 ## Install
 
 ```
-$ npm install circle-step-outputter
+$ npm install --global circle-step-outputter
 ```
 
 
 ## Usage
 
 ## CLI
-
-```
-$ npm install --global circle-step-outputter
-```
 
 ```
 $ circle-step-outputter --help
