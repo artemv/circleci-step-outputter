@@ -9,9 +9,9 @@ test:
 deployment:
   master:
     branch: master
-    owner: artemv8
+    owner: artemv
     commands:
-      - (npm run semantic-release) || true
+      - npm run semantic-release
 
 general:
   artifacts:
