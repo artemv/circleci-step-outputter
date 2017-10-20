@@ -1,6 +1,7 @@
-# circle-step-outputter [![Build Status](https://travis-ci.org/artemv/circle-step-outputter.svg?branch=master)](https://travis-ci.org/artemv/circle-step-outputter) [![codecov](https://codecov.io/gh/artemv/circle-step-outputter/badge.svg?branch=master)](https://codecov.io/gh/artemv/circle-step-outputter?branch=master)
+# circle-step-outputter 
+[![CircleCI](https://circleci.com/gh/artemv/circleci-step-outputter.svg?style=svg)](https://circleci.com/gh/artemv/circleci-step-outputter)
 
-> Writes CircleCI step output to a file
+Writes CircleCI step output to a file
 
 
 ## Install
@@ -12,34 +13,6 @@ $ npm install circle-step-outputter
 
 ## Usage
 
-```js
-const circleStepOutputter = require('circle-step-outputter');
-
-circleStepOutputter('unicorns');
-//=> 'unicorns & rainbows'
-```
-
-
-## API
-
-### circleStepOutputter(input, [options])
-
-#### input
-
-Type: `string`
-
-Lorem ipsum.
-
-#### options
-
-##### foo
-
-Type: `boolean`<br>
-Default: `false`
-
-Lorem ipsum.
-
-
 ## CLI
 
 ```
@@ -49,16 +22,39 @@ $ npm install --global circle-step-outputter
 ```
 $ circle-step-outputter --help
 
+  Writes CircleCI build step output to a file
+
   Usage
-    circle-step-outputter [input]
+    $ circle-step-outputter [options]
 
   Options
-    --foo  Lorem ipsum [Default: false]
+    --baseFileName [Default: "test-output"]
+    --repoSlug [Default: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME]
+    --buildNum [Default: $CIRCLE_BUILD_NUM]
+    --token [Default: $CIRCLE_API_TOKEN]
+    --stepName [Default: "npm test"]
 
   Examples
-    $ circle-step-outputter out.json
+    $ circle-step-outputter --repoSlug="artemv/test-lib" --buildNum=2
+  This will write test-output.json, or test-output0.txt, test-output1.txt ... test-output4.txt if there are
+  multiple actions in the step (usually parallel actions).
 ```
 
+## API
+
+```js
+const circleStepOutputter = require('circle-step-outputter');
+
+circleStepOutputter({repoSlug: "artemv/test-lib", buildNum: 2});
+```
+
+### circleStepOutputter([options])
+
+#### options
+
+Type: `Object`
+
+See CLI section for options list.
 
 ## License
 
