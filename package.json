@@ -37,6 +37,7 @@
     "condition-circle": "^1.5.0",
     "eslint": "^4.9.0",
     "eslint-config-google": "^0.9.1",
+    "freeform-semantic-commit-analyzer": "^1.1.0",
     "nyc": "^11.0.0",
     "semantic-release": "^7.0.0"
   },
@@ -47,6 +48,7 @@
     ]
   },
   "release": {
+    "analyzeCommits": "freeform-semantic-commit-analyzer",
     "verifyConditions": "condition-circle"
   },
   "version": "0.0.0-development"
