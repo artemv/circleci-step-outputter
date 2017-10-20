@@ -31,7 +31,6 @@ function writeResponseMessagesToFile(messages, baseFilename) {
 }
 
 function dumpOutput(outputUrl, baseFilename) {
-  console.log(`querying "${outputUrl}" for step output(s)`);
   return axios
     .get(outputUrl)
     .then(response => writeResponseMessagesToFile(response.data.map(i => i.message), baseFilename))
