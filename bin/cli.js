@@ -16,7 +16,7 @@ const cli = meow(`
       --stepName [Default: "npm test"]
 
     Examples
-      $ circle-step-outputter --repoSlug="artemv/test-lib" --buildNum=2
+      $ circle-step-outputter --repoSlug="artemv/circleci-step-outputter" --buildNum=2
     This will write test-output.json, or test-output0.txt, test-output1.txt ... test-output4.txt if there are 
     multiple actions in the step (usually parallel actions). 
 `);
