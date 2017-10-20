@@ -46,5 +46,8 @@
             "text"
         ]
     },
+    "release": {
+        "verifyConditions": "condition-circle"
+    },
     "version": "0.0.0-development"
 }
