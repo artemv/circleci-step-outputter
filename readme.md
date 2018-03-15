@@ -35,6 +35,8 @@ $ circle-step-outputter --help
   This will write test-output.json, or test-output0.txt, test-output1.txt ... test-output4.txt if there are
   multiple actions in the step (usually parallel actions).
 ```
+For public/open source projects specifying `token` is not needed - you only need to do it for private projects. You can 
+generate the token here: ![api token screens](docs/api_token.png "api token screens")
 
 ## API
 
