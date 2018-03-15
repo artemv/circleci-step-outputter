@@ -11,5 +11,5 @@ deployment:
     branch: master
     owner: artemv
     commands:
-      - npm run semantic-release
+      - (npm run semantic-release) || echo "publishing failed"
 

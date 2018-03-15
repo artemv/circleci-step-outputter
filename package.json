@@ -15,7 +15,7 @@
   },
   "scripts": {
     "eslint": "eslint bin src test",
-    "semantic-release": "semantic-release pre && npm publish",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "test": "(npm run eslint || true) && nyc ava test"
   },
   "files": [
