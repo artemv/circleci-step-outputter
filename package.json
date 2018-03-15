@@ -3,7 +3,10 @@
   "main": "src",
   "description": "Writes CircleCI build step output to a file",
   "license": "MIT",
-  "repository": "artemv/circleci-step-outputter",
+  "repository": {
+    "type": "git",
+    "url": "github.com:artemv/circleci-step-outputter.git"
+  },
   "author": {
     "name": "Artem Vasiliev",
     "email": "artem.job@gmail.com",
@@ -11,11 +14,10 @@
   },
   "bin": "bin/cli.js",
   "engines": {
-    "node": ">=7"
+    "node": ">=8"
   },
   "scripts": {
     "eslint": "eslint bin src test",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "test": "(npm run eslint || true) && nyc ava test"
   },
   "files": [
@@ -39,17 +41,13 @@
     "eslint-config-google": "^0.9.1",
     "freeform-semantic-commit-analyzer": "^1.1.0",
     "nyc": "^11.0.0",
-    "semantic-release": "^7.0.0"
+    "semantic-release": "^15.0.3"
   },
   "nyc": {
     "reporter": [
       "lcov",
       "text"
     ]
-  },
-  "release": {
-    "analyzeCommits": "freeform-semantic-commit-analyzer",
-    "verifyConditions": "condition-circle"
   },
   "version": "0.0.0-development"
 }
