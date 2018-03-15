@@ -31,7 +31,8 @@
   ],
   "dependencies": {
     "axios": "^0.16.2",
-    "meow": "^3.7.0"
+    "meow": "^3.7.0",
+    "simple-commit-message": "^4.0.3"
   },
   "devDependencies": {
     "ava": "^0.20.0",
@@ -39,7 +40,6 @@
     "condition-circle": "^1.5.0",
     "eslint": "^4.9.0",
     "eslint-config-google": "^0.9.1",
-    "freeform-semantic-commit-analyzer": "^1.1.0",
     "nyc": "^11.0.0",
     "semantic-release": "^15.0.3"
   },
@@ -48,6 +48,9 @@
       "lcov",
       "text"
     ]
+  },
+  "release": {
+    "analyzeCommits": "simple-commit-message"
   },
   "version": "0.0.0-development"
 }
