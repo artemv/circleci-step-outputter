@@ -31,8 +31,7 @@
   ],
   "dependencies": {
     "axios": "^0.16.2",
-    "meow": "^3.7.0",
-    "simple-commit-message": "^4.0.3"
+    "meow": "^3.7.0"
   },
   "devDependencies": {
     "ava": "^0.20.0",
@@ -41,7 +40,8 @@
     "eslint": "^4.9.0",
     "eslint-config-google": "^0.9.1",
     "nyc": "^11.0.0",
-    "semantic-release": "^15.0.3"
+    "semantic-release": "^15.0.3",
+    "simple-commit-message": "^4.0.3"
   },
   "nyc": {
     "reporter": [
