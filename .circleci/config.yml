@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  test:
     docker:
       - image: circleci/node:8
     steps:
@@ -30,6 +30,14 @@ jobs:
             node bin/cli.js && mv test-output*.txt ci-artifacts/
       - store_artifacts:
           path: ci-artifacts/
+
+  deploy:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: deploy
           command: |
@@ -41,4 +49,8 @@ workflows:
   version: 2
   build:
     jobs:
-      - build
+      - test
+      - deploy:
+        requires:
+          - test
+        context: "my npm-based projects"
