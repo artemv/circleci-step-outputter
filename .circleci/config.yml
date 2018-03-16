@@ -32,7 +32,11 @@ jobs:
           path: ci-artifacts/
       - run:
           name: deploy
-          command: ./.circleci/semantic-release.sh
+          command: |
+            if [ "${CIRCLE_PROJECT_USERNAME}" == "artemv" ] && [ "${CIRCLE_BRANCH}" == "master" ]; then
+              (npx semantic-release) || echo "publishing failed"
+            fi
+
 workflows:
   version: 2
   build:
