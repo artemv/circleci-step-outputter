@@ -30,27 +30,15 @@ jobs:
             node bin/cli.js && mv test-output*.txt ci-artifacts/
       - store_artifacts:
           path: ci-artifacts/
-
-  deploy:
-    docker:
-      - image: circleci/node:8
-    steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: deploy
           command: |
             if [ "${CIRCLE_PROJECT_USERNAME}" == "artemv" ] && [ "${CIRCLE_BRANCH}" == "master" ]; then
               (npx semantic-release) || echo "publishing failed"
             fi
-
 workflows:
   version: 2
   build:
     jobs:
-      - build
-      - deploy:
-        requires:
-          - test
+      - build:
         context: "my npm-based projects"
