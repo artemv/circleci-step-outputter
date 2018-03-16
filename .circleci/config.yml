@@ -42,6 +42,7 @@ jobs:
           name: deploy
           command: |
             if [ "${CIRCLE_PROJECT_USERNAME}" == "artemv" ] && [ "${CIRCLE_BRANCH}" == "master" ]; then
+              cp .circleci/.npmrc .
               (npx semantic-release) || echo "publishing failed"
             fi
 
