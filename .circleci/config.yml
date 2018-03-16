@@ -24,9 +24,11 @@ jobs:
             mkdir ci-artifacts
             cp yarn.lock ci-artifacts/
           when: always
+
   test:
     docker:
       - image: circleci/node:8
+    steps:
       - run: yarn test
       - run:
           name: post-test
@@ -34,13 +36,16 @@ jobs:
             node bin/cli.js && mv test-output*.txt ci-artifacts/
       - store_artifacts:
           path: ci-artifacts/
+
   deploy:
     docker:
       - image: circleci/node:8
+    steps:
       - run: |
         if [ "${CIRCLE_PROJECT_USERNAME}" == "artemv" ] && [ "${CIRCLE_BRANCH}" == "master" ]; then
           (npx semantic-release) || echo "publishing failed"
         fi
+
 workflows:
   version: 2
   do_everything:
