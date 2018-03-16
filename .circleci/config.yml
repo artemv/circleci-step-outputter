@@ -1,0 +1,41 @@
+version: 2
+jobs:
+  build:
+    docker: circleci/node:8
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-deps
+          command: |
+            yarn
+
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+            - ~/.cache/yarn
+            - yarn.lock
+      - run:
+          name: post-deps
+          command: |
+            mkdir ci-artifacts
+            cp yarn.lock ci-artifacts/
+          when: always
+
+      - run:
+          name: test
+          command: yarn test
+      - run:
+          name: post-test
+          command: |
+            node bin/cli.js && mv test-output*.txt ci-artifacts/
+      - store_artifacts:
+          path: ci-artifacts/
+      - run:
+          name: deploy
+          command: |
+            if [ "${CIRCLE_PROJECT_USERNAME}" == "artemv" ] && [ "${CIRCLE_BRANCH}" == "master" ]; then
+              (npx semantic-release) || echo "publishing failed"
+            fi
