@@ -31,8 +31,8 @@ jobs:
       - store_artifacts:
           path: ci-artifacts/
       - run:
-        name: deploy
-        command: ./.circleci/semantic-release.sh
+          name: deploy
+          command: ./.circleci/semantic-release.sh
 workflows:
   version: 2
   build:
