@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  test:
     docker:
       - image: circleci/node:8
     steps:
@@ -11,7 +11,6 @@ jobs:
           name: install-deps
           command: |
             yarn
-
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
@@ -24,11 +23,6 @@ jobs:
             mkdir ci-artifacts
             cp yarn.lock ci-artifacts/
           when: always
-
-  test:
-    docker:
-      - image: circleci/node:8
-    steps:
       - run: yarn test
       - run:
           name: post-test
@@ -41,6 +35,9 @@ jobs:
     docker:
       - image: circleci/node:8
     steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
         name: deploy
         command: |
@@ -52,10 +49,7 @@ workflows:
   version: 2
   do_everything:
     jobs:
-      - build
       - test:
-        requires:
-          - build
       - deploy:
         requires:
           - test
