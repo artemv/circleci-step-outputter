@@ -47,10 +47,10 @@ jobs:
 
 workflows:
   version: 2
-  do_everything:
+  build:
     jobs:
-      - test:
+      - test
       - deploy:
         requires:
           - test
-        context: my npm-based projects
+        context: "my npm-based projects"
