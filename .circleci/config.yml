@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  job1:
+  build:
     docker:
       - image: circleci/node:8
     steps:
@@ -40,5 +40,4 @@ workflows:
   version: 2
   build:
     jobs:
-      - job1:
-        context: "my npm-based projects"
+      - build
