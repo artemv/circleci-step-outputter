@@ -28,7 +28,7 @@ $ circle-step-outputter --help
     --repoSlug [Default: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME]
     --buildNum [Default: $CIRCLE_BUILD_NUM]
     --token [Default: $CIRCLE_API_TOKEN]
-    --step [Default: "npm test"]
+    --step [Default: "npm test"] - a build step name substring
 
   Examples
     $ circle-step-outputter --repoSlug="artemv/circleci-step-outputter" --buildNum=2
