@@ -41,7 +41,7 @@ jobs:
       - run:
           name: deploy
           command: |
-            if [ "${CIRCLE_PROJECT_USERNAME}" == "artemv" ] && [ "${CIRCLE_BRANCH}" == "master" ]; then
+            if [ "${CIRCLE_PROJECT_USERNAME}" == "artemv" ]; then
               cp .circleci/.npmrc .
               (npx semantic-release) || echo "publishing failed"
             fi
@@ -54,4 +54,7 @@ workflows:
       - deploy:
           requires:
             - test
+          filters:
+            branches:
+              only: master
           context: "my npm-based projects"
