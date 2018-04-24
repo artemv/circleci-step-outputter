@@ -57,4 +57,3 @@ See CLI section for options list.
 ## License
 
 MIT © [Artem Vasiliev](https://github.com/artemv)
-
