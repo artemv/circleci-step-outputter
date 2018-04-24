@@ -36,7 +36,7 @@ $ circle-step-outputter --help
   multiple actions in the step (usually parallel actions).
 ```
 For public/open source projects specifying `token` is not needed - you only need to do it for private projects. You can 
-generate the token here: ![api token screens](docs/api_token.png "api token screens")
+generate the token here: ![api token creation](docs/api_token.png "api token creation")
 
 ## API
 
