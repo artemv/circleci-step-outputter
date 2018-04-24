@@ -1,4 +1,6 @@
 # circle-step-outputter 
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/artemv/circleci-step-outputter.svg)](https://greenkeeper.io/)
 [![CircleCI](https://circleci.com/gh/artemv/circleci-step-outputter.svg?style=svg)](https://circleci.com/gh/artemv/circleci-step-outputter)
 
 Writes CircleCI step output to a file
