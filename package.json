@@ -30,13 +30,13 @@
     "circleci"
   ],
   "dependencies": {
-    "axios": "^0.16.2",
-    "meow": "^3.7.0"
+    "axios": "^0.18.0",
+    "meow": "^4.0.0"
   },
   "devDependencies": {
-    "ava": "^0.20.0",
-    "codecov": "^2.2.0",
-    "condition-circle": "^1.5.0",
+    "ava": "^0.25.0",
+    "codecov": "^3.0.0",
+    "condition-circle": "^2.0.1",
     "eslint": "^4.9.0",
     "eslint-config-google": "^0.9.1",
     "nyc": "^11.0.0",
