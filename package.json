@@ -39,7 +39,7 @@
     "condition-circle": "^2.0.1",
     "eslint": "^4.9.0",
     "eslint-config-google": "^0.9.1",
-    "nyc": "^11.0.0",
+    "nyc": "^12.0.1",
     "semantic-release": "^15.0.3",
     "simple-commit-message": "^4.0.3"
   },
