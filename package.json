@@ -34,7 +34,7 @@
     "meow": "^5.0.0"
   },
   "devDependencies": {
-    "ava": "^0.25.0",
+    "ava": "^1.0.1",
     "codecov": "^3.0.0",
     "condition-circle": "^2.0.1",
     "eslint": "^4.9.0",
