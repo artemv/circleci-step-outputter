@@ -16,7 +16,6 @@ jobs:
           paths:
             - node_modules
             - ~/.cache/yarn
-            - yarn.lock
       - run:
           name: post-deps
           command: |
