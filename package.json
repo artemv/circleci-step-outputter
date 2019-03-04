@@ -18,7 +18,7 @@
   },
   "scripts": {
     "eslint": "eslint bin src test",
-    "test": "(npm run eslint || true) && nyc ava test"
+    "test": "(yarn eslint || true) && nyc ava test"
   },
   "files": [
     "bin",
@@ -40,7 +40,7 @@
     "eslint": "^5.0.0",
     "eslint-config-google": "^0.10.0",
     "nyc": "^13.2.0",
-    "semantic-release": "15.6.1",
+    "semantic-release": "^15.6.1",
     "simple-commit-message": "^4.0.3"
   },
   "nyc": {

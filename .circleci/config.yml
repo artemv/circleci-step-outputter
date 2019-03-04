@@ -10,7 +10,7 @@ jobs:
       - run:
           name: install-deps
           command: |
-            yarn
+            yarn --frozen-lockfile
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
