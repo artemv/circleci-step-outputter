@@ -37,7 +37,7 @@
     "ava": "^0.25.0",
     "codecov": "^3.0.0",
     "condition-circle": "^2.0.1",
-    "eslint": "^5.0.0",
+    "eslint": "^6.0.0",
     "eslint-config-google": "^0.10.0",
     "nyc": "^13.2.0",
     "semantic-release": "^15.6.1",
