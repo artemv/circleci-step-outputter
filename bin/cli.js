@@ -13,7 +13,7 @@ const cli = meow(`
       --repoSlug [Default: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME]
       --buildNum [Default: $CIRCLE_BUILD_NUM]
       --token [Default: $CIRCLE_API_TOKEN]
-      --stepName [Default: "npm test"]
+      --step [Default: "npm test"]
 
     Examples
       $ circle-step-outputter --repoSlug="artemv/circleci-step-outputter" --buildNum=2
