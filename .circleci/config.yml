@@ -30,7 +30,21 @@ jobs:
       - store_artifacts:
           path: ci-artifacts/
 
-  deploy:
+  publish-test:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: deploy
+          command: |
+            if [ "${CIRCLE_PROJECT_USERNAME}" == "artemv" ]; then
+              ALLOW_FAILING=false yarn simple-semantic-release-pre
+            fi
+
+  publish:
     docker:
       - image: circleci/node:8
     steps:
@@ -42,7 +56,7 @@ jobs:
           command: |
             if [ "${CIRCLE_PROJECT_USERNAME}" == "artemv" ]; then
               cp .circleci/.npmrc .
-              (yarn semantic-release) || echo "publishing failed"
+              yarn semantic-release
             fi
 
 workflows:
@@ -50,10 +64,17 @@ workflows:
   main:
     jobs:
       - test
-      - deploy:
+      - publish:
           requires:
             - test
           filters:
             branches:
               only: master
+          context: "my npm-based projects"
+      - publish-test:
+          requires:
+            - test
+          filters:
+            branches:
+              ignore: master
           context: "my npm-based projects"
