@@ -56,4 +56,4 @@ workflows:
           filters:
             branches:
               only: master
-          context: org-global
+          context: "my npm-based projects"
