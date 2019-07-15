@@ -41,7 +41,7 @@ jobs:
           name: deploy
           command:
             if [ "${CIRCLE_PROJECT_USERNAME}" == "artemv" ]; then
-            ALLOW_FAILING=false yarn simple-semantic-release-pre
+              ALLOW_FAILING=false yarn simple-semantic-release-pre
             fi
 
   publish:
