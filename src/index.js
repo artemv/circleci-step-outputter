@@ -4,7 +4,7 @@ const fs = require('fs');
 const env = process.env;
 
 function findStep(steps, stepId) {
-  let step = steps.find(s => s.name.includes(stepId));
+  const step = steps.find(s => s.name.includes(stepId));
   if (!step) {
     throw new Error(`You specified invalid step identifier, "${stepId}". ` +
       `Steps available in build: ${JSON.stringify(steps.map(s => s.name))}`);
@@ -15,7 +15,7 @@ function findStep(steps, stepId) {
 function writeResponseMessagesToFile(messages, baseFilename) {
   console.log('writeResponseMessagesToFile', messages.length, baseFilename);
   return Promise.all(messages.map((message, idx) => {
-    let txtFileName = `${baseFilename}${messages.length > 1 ? idx : ''}.txt`;
+    const txtFileName = `${baseFilename}${messages.length > 1 ? idx : ''}.txt`;
 
     return new Promise((resolve, reject) => {
       fs.writeFile(txtFileName, message, function(err) {
@@ -32,30 +32,30 @@ function writeResponseMessagesToFile(messages, baseFilename) {
 
 function dumpOutput(outputUrl, baseFilename) {
   return axios
-    .get(outputUrl)
-    .then(response => writeResponseMessagesToFile(response.data.map(i => i.message), baseFilename))
-    .catch(error => {
-      console.log(error);
-    });
+      .get(outputUrl)
+      .then(response => writeResponseMessagesToFile(response.data.map(i => i.message), baseFilename))
+      .catch(error => {
+        console.log(error);
+      });
 }
 
 function dumpOutputs(actions, baseFileName) {
   return Promise.all(actions.map(action => dumpOutput(action.output_url,
-    `${baseFileName}${actions.length > 1 ? action.index : ''}`)));
+      `${baseFileName}${actions.length > 1 ? action.index : ''}`)));
 }
 
 function getBuildMetadata(url, {baseFileName, step}) {
   return axios
-    .get(url)
-    .then(response => findStep(response.data.steps, step))
-    .then(stepData => dumpOutputs(stepData.actions, baseFileName))
-    .then(data => {
-      console.log(data);
-      return data;
-    })
-    .catch(error => {
-      console.log(error.message);
-    });
+      .get(url)
+      .then(response => findStep(response.data.steps, step))
+      .then(stepData => dumpOutputs(stepData.actions, baseFileName))
+      .then(data => {
+        console.log(data);
+        return data;
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
 }
 
 function main(opts = {}) {
