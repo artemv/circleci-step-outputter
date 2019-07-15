@@ -39,7 +39,7 @@ jobs:
           key: dependency-cache-v2-{{ checksum "package.json" }}
       - run:
           name: deploy
-          command:
+          command: |
             if [ "${CIRCLE_PROJECT_USERNAME}" == "artemv" ]; then
               ALLOW_FAILING=false yarn simple-semantic-release-pre
             fi
