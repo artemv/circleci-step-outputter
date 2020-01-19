@@ -35,7 +35,7 @@
     "meow": "^6.0.0"
   },
   "devDependencies": {
-    "ava": "^2.2.0",
+    "ava": "^3.0.0",
     "codecov": "^3.5.0",
     "eslint": "^6.0.0",
     "eslint-config-google": "^0.14.0",
