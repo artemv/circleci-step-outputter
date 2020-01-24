@@ -42,7 +42,7 @@
     "eslint": "^6.0.0",
     "eslint-config-google": "^0.14.0",
     "nyc": "^15.0.0",
-    "simple-semantic-config": "^6.0.14"
+    "simple-semantic-config": "^6.1.0"
   },
   "nyc": {
     "reporter": [
