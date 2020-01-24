@@ -23,7 +23,9 @@ jobs:
             cp yarn.lock ci-artifacts/
           when: always
       - run: yarn eslint
-      - run: yarn test
+      - run:
+          command: yarn test
+          when: always
       - run:
           name: post-test
           command: |
