@@ -18,7 +18,7 @@
   },
   "scripts": {
     "eslint": "eslint bin src test",
-    "test": "(yarn eslint || true) && nyc ava",
+    "test": "nyc ava",
     "circle-step-outputter": "bin/cli.js"
   },
   "files": [
