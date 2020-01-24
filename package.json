@@ -35,7 +35,9 @@
     "meow": "^6.0.0"
   },
   "devDependencies": {
-    "ava": "^2.2.0",
+    "@ava/babel": "^1.0.0",
+    "ava": "^3.0.0",
+    "babel-eslint": "^10.0.3",
     "codecov": "^3.5.0",
     "eslint": "^6.0.0",
     "eslint-config-google": "^0.14.0",
@@ -51,5 +53,8 @@
   "release": {
     "extends": "simple-semantic-config"
   },
-  "version": "0.0.0-development"
+  "version": "0.0.0-development",
+  "ava": {
+    "babel": true
+  }
 }
