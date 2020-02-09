@@ -35,7 +35,7 @@
     "meow": "^6.0.0"
   },
   "devDependencies": {
-    "@ava/babel": "^1.0.0",
+    "@ava/babel": "1.0.0",
     "ava": "^3.0.0",
     "babel-eslint": "^10.0.3",
     "codecov": "^3.5.0",
