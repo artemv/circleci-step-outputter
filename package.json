@@ -32,7 +32,7 @@
   ],
   "dependencies": {
     "axios": "^0.19.0",
-    "meow": "^6.0.0"
+    "meow": "^6.1.1"
   },
   "devDependencies": {
     "@ava/babel": "^1.0.0",
